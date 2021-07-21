@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:porto_graphy/mainmenu.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -83,7 +84,10 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          print("pressed");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MainMenu()),
+                          );
                         },
                       ),
                       width: MediaQuery.of(context).size.width * 0.7,
