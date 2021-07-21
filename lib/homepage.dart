@@ -69,12 +69,16 @@ class HomePage extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.2,
                     ),
                     Container(
+                      width: 200,
+                      margin: EdgeInsets.all(38),
                       child: ElevatedButton(
                         child: Text("START"),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.blueAccent,
-                          shadowColor: Colors.blue[100],
-                          elevation: 4,
+                          primary: Color.fromRGBO(0, 0, 0, 0.3),
+                          side: BorderSide(color: Colors.white, width: 3),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           padding: EdgeInsets.symmetric(
                               horizontal: 15, vertical: 20),
                           textStyle: TextStyle(
@@ -90,9 +94,6 @@ class HomePage extends StatelessWidget {
                           );
                         },
                       ),
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      //height: 76,
-                      margin: EdgeInsets.all(38),
                     ),
                   ],
                 ),
