@@ -23,7 +23,6 @@ class HomePage extends StatelessWidget {
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Container(
@@ -82,6 +81,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 15, vertical: 20),
                           textStyle: TextStyle(
+                            color: Colors.white,
                             fontSize: 25,
                             letterSpacing: 4,
                             fontWeight: FontWeight.bold,

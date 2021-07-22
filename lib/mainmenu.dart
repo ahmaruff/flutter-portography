@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:porto_graphy/contact.dart';
+import 'package:porto_graphy/gobackfab.dart';
 import 'package:porto_graphy/imagerotator.dart';
 import 'package:porto_graphy/aboutme.dart';
 
@@ -24,100 +26,73 @@ class MainMenu extends StatelessWidget {
             color: Color.fromRGBO(0, 0, 0, 0.7),
           ),
           SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(left: 30, top: 25),
-                  child: Text(
-                    "MA'RUF PHOTOGRAPHY",
-                    textAlign: TextAlign.justify,
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                      letterSpacing: 8,
+            child: Center(
+              child: ListView(
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: TextButton(
+                      onPressed: () {},
+                      autofocus: true,
+                      child: Text(
+                        "Portfolio",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        child: TextButton(
-                          onPressed: () {},
-                          autofocus: true,
-                          child: Text(
-                            "Portfolio",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            ),
-                          ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutMe()),
+                        );
+                      },
+                      autofocus: true,
+                      child: Text(
+                        "About Me",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
                         ),
                       ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AboutMe()),
-                            );
-                          },
-                          autofocus: true,
-                          child: Text(
-                            "About Me",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        child: TextButton(
-                          onPressed: () {},
-                          autofocus: true,
-                          child: Text(
-                            "Contact",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.bottomRight,
-                  margin: EdgeInsets.only(bottom: 25, right: 30),
-                  child: IconButton(
-                    color: Colors.white,
-                    icon: Icon(Icons.arrow_back_rounded),
-                    iconSize: 30,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Contact()),
+                        );
+                      },
+                      autofocus: true,
+                      child: Text(
+                        "Contact",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
       ),
+      floatingActionButton: GoBackButton(),
     );
   }
 }
