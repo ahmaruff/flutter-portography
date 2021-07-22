@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:porto_graphy/mainmenu.dart';
 
@@ -30,6 +29,8 @@ class HomePage extends StatelessWidget {
                     Container(
                       width: 150,
                       height: 150,
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -45,7 +46,6 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      margin: EdgeInsets.all(30),
                     ),
                     Text(
                       "Ahmad Ma'ruf",

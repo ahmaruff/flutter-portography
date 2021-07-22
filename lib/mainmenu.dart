@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:porto_graphy/imagerotator.dart';
+import 'package:porto_graphy/aboutme.dart';
 
 // for background image loop
 var photos = [
@@ -39,6 +40,7 @@ class MainMenu extends StatelessWidget {
                   ),
                 ),
                 SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -46,7 +48,6 @@ class MainMenu extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        margin: EdgeInsets.only(left: 20),
                         child: TextButton(
                           onPressed: () {},
                           autofocus: true,
@@ -63,9 +64,14 @@ class MainMenu extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        margin: EdgeInsets.only(left: 20),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AboutMe()),
+                            );
+                          },
                           autofocus: true,
                           child: Text(
                             "About Me",
@@ -80,7 +86,6 @@ class MainMenu extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        margin: EdgeInsets.only(left: 20),
                         child: TextButton(
                           onPressed: () {},
                           autofocus: true,
