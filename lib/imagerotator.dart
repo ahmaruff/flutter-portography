@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ImageRotator extends StatefulWidget {
-  List<String> photos;
+  final List<String> photos;
 
   ImageRotator(this.photos);
 
