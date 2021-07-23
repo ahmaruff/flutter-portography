@@ -18,6 +18,10 @@ var photos = [
 class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var textMargin = 30.0;
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      textMargin = MediaQuery.of(context).size.width * 0.2;
+    }
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -30,7 +34,8 @@ class MainMenu extends StatelessWidget {
             child: Center(
               child: ListView(
                 shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                padding:
+                    EdgeInsets.symmetric(horizontal: textMargin, vertical: 20),
                 children: <Widget>[
                   Container(
                     alignment: Alignment.centerLeft,

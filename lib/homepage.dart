@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:porto_graphy/mainmenu.dart';
+import 'package:porto_graphy/imagerotator.dart';
+
+// for background image loop
+var photos = [
+  'assets/1.jpg',
+  'assets/2.jpg',
+  'assets/3.jpg',
+  'assets/4.jpg',
+  'assets/5.jpg',
+  'assets/6.jpg',
+];
 
 class HomePage extends StatelessWidget {
   @override
@@ -8,14 +19,7 @@ class HomePage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/background.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          ImageRotator(photos),
           Container(
             color: Color.fromRGBO(0, 0, 0, 0.7),
           ),

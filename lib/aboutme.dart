@@ -10,6 +10,11 @@ Nulla justo mi, finibus sit amet tincidunt vitae, aliquet vitae nunc. Vestibulum
 class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var textMargin = 30.0;
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      textMargin = MediaQuery.of(context).size.width * 0.2;
+    }
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -27,7 +32,8 @@ class AboutMe extends StatelessWidget {
           ),
           SafeArea(
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+              padding:
+                  EdgeInsets.symmetric(horizontal: textMargin, vertical: 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
