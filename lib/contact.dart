@@ -2,6 +2,80 @@ import 'package:flutter/material.dart';
 import 'package:porto_graphy/gobackfab.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+void launcherUrl(String url) async {
+  if (await canLaunch(url)) {
+    await (launch(url));
+  } else {
+    throw 'Could Not Launch $url';
+  }
+}
+
+var webList = [
+  {
+    'url': 'http://example.com',
+    'img': 'assets/socmed-icon/www.png',
+    'txt': "marufphotography.com",
+  },
+  {
+    'url': 'mailto:info@marufphotography.com',
+    'img': 'assets/socmed-icon/mail.png',
+    'txt': "info@marufphotography.com",
+  },
+  {
+    'url': 'http://example.com',
+    'img': 'assets/socmed-icon/fb.png',
+    'txt': "Ma'ruf Photography",
+  },
+  {
+    'url': 'https://example.com',
+    'img': 'assets/socmed-icon/ig.png',
+    'txt': '@marufphotography',
+  },
+  {
+    'url': 'https://example.com',
+    'img': 'assets/socmed-icon/tw.png',
+    'txt': '@marufhotography',
+  }
+];
+
+Widget websiteIcon(Map<String, String> web) {
+  return Container(
+    margin: EdgeInsets.symmetric(vertical: 10),
+    child: InkWell(
+      onTap: () {
+        launcherUrl(web['url']);
+      },
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: 10),
+              child: Image.asset(
+                web['img'],
+                width: 30,
+                height: 30,
+              ),
+            ),
+            Container(
+              child: Text(
+                web['txt'],
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -60,181 +134,13 @@ class Contact extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        _launcherUrl('http://example.com');
-                      },
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Icon(
-                                Icons.language_outlined,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "marufphotography.com",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (var i = 0; i < webList.length; i++)
+                        websiteIcon(webList[i])
+                    ],
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        _laucherEmail('info@marufphotography.com');
-                      },
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Icon(
-                                Icons.mail_outline_rounded,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "info@marufphotography.com",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        _launcherUrl('http://example.com');
-                      },
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Image.asset(
-                                'assets/socmed-icon/fb.png',
-                                width: 30,
-                                height: 30,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "maruf photography",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        _launcherUrl('http://example.com');
-                      },
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Image.asset(
-                                'assets/socmed-icon/ig.png',
-                                width: 30,
-                                height: 30,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "@marufphotography",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: InkWell(
-                      onTap: () {
-                        _launcherUrl('http://example.com');
-                      },
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              child: Image.asset(
-                                'assets/socmed-icon/tw.png',
-                                width: 30,
-                                height: 30,
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                "@marufphotography",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
@@ -243,18 +149,5 @@ class Contact extends StatelessWidget {
       ),
       floatingActionButton: GoBackButton(),
     );
-  }
-
-  _launcherUrl(String url) async {
-    if (await canLaunch(url)) {
-      await (launch(url));
-    } else {
-      throw 'Could Not Launch $url';
-    }
-  }
-
-  _laucherEmail(String address) async {
-    var mail = 'mailto:$address';
-    launch(mail);
   }
 }
