@@ -3,6 +3,7 @@ import 'package:porto_graphy/contact.dart';
 import 'package:porto_graphy/gobackfab.dart';
 import 'package:porto_graphy/imagerotator.dart';
 import 'package:porto_graphy/aboutme.dart';
+import 'package:porto_graphy/portfolio.dart';
 
 // for background image loop
 var photos = [
@@ -35,7 +36,13 @@ class MainMenu extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.symmetric(vertical: 5),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PortfolioImage()),
+                        );
+                      },
                       autofocus: true,
                       child: Text(
                         "Portfolio",
