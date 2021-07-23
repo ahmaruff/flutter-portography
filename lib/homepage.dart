@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           ImageRotator(photos),
           Container(
-            color: Color.fromRGBO(0, 0, 0, 0.7),
+            color: Color.fromRGBO(0, 0, 0, 0.8),
           ),
           SafeArea(
             child: Center(
@@ -55,6 +55,7 @@ class HomePage extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
+                        fontFamily: 'Pacifico',
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
